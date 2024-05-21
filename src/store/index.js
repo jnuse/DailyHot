@@ -1,8 +1,13 @@
 import { defineStore } from "pinia";
+import axios from "@/api/request";
+const defaultHotListIs = await axios({
+    method: "GET",
+    url: `/defaultHotLists`,,
+  });
 
 export const mainStore = defineStore("mainData", {
   state: () => {
-    return {
+    return defaultHotListIs.length>0?defaultHotListIs:{
       // 系统主题
       siteTheme: "light",
       siteThemeAuto: true,
