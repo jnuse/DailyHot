@@ -1,9 +1,13 @@
 import { defineStore } from "pinia";
 import axios from "@/api/request";
+
+(async () => {  
 const defaultHotListIs = await axios({
     method: "GET",
     url: `/defaultHotLists`,
-  });
+  }); 
+})();
+
 
 export const mainStore = defineStore("mainData", {
   state: () => {
